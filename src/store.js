@@ -3,7 +3,8 @@ export const initialStore = () => {
     message: null,
     personajes: [],
     loading: false,
-    error: null
+    error: null,
+    planetas:[],
   }
 }
 
@@ -30,7 +31,10 @@ export default function storeReducer(store, action = {}) {
         error: action.payload,
         loading: false
       }
-    
+    case 'Get_Planets':
+      return{
+        ...store,planetas: action.payload,
+      }
     default:
       return store;
   }    

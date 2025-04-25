@@ -30,3 +30,25 @@ export const GetPersonajes = async (dispatch) => {
     });
   }
 };
+
+export const GetPlanetas=async(dispatch)=>{
+  try {
+    const response = await fetch(`${base_Url}planets`)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    if (!data?.results || !Array.isArray(data.results)) {
+      throw new Error("Formato de datos inesperado");
+    }
+    dispatch({
+      type:'Get_Planets',
+      payload:data.results
+    })
+
+    
+  } catch (error) {
+    
+  }
+}
