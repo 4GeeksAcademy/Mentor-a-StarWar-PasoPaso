@@ -1,4 +1,4 @@
-const base_Url = "https://www.swapi.tech/api/";
+const base_Url = "https://swapi.py4e.com/api/";
 
 export const GetPersonajes = async (dispatch) => {
   try {
@@ -17,7 +17,6 @@ export const GetPersonajes = async (dispatch) => {
     if (!data?.results || !Array.isArray(data.results)) {
       throw new Error("Formato de datos inesperado");
     }
-
     dispatch({
       type: "GET_PERSONAJES_SUCCESS",
       payload: data.results, // Enviamos solo el array de resultados
@@ -50,5 +49,18 @@ export const GetPlanetas=async(dispatch)=>{
     
   } catch (error) {
     
+  }
+}
+
+export const getSpecificPersonaje= async (dispatch,id)=>{
+  try {
+    const response = await fetch(`${base_Url}${id}`)
+    if(!response.ok){
+throw new Error("No ha sido posible cargar los datos");
+
+    }
+    
+  } catch (error) {
+    console.log("Error al cargar el personaje:", error)
   }
 }

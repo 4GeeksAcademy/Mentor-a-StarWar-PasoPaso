@@ -11,6 +11,7 @@ import { Single } from "./pages/Single";
 import { Demo } from "./pages/Demo";
 import Personajes from "./pages/Personajes";
 import Planetas from "./pages/Planetas";
+import DetallePersonaje from "./pages/DetallePersonaje";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -29,6 +30,7 @@ export const router = createBrowserRouter(
         <Route path="/demo" element={<Demo />} />
         <Route path="/personajes" element={<Personajes />} /> {/* Static route for Personajes */}
         <Route path="/planetas" element={<Planetas />} /> 
+         <Route path="/detallePersonaje/:uid" element={<DetallePersonaje />} /> 
         {/* Add more routes here as needed */}
       </Route>
     )
